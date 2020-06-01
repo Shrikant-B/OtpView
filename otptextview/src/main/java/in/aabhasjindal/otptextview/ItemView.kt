@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.TypedArray
 import android.graphics.Typeface
+import android.graphics.drawable.ColorDrawable
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.Gravity
@@ -77,7 +78,7 @@ class ItemView : FrameLayout {
         barErrorColor = styles.getColor(R.styleable.OtpTextView_bar_error_color, ResourcesCompat.getColor(context.resources, R.color.red, null))
         barSuccessColor = styles.getColor(R.styleable.OtpTextView_bar_success_color, ResourcesCompat.getColor(context.resources, R.color.black, null))
 
-        this.setBackgroundResource(boxBackgroundColor)
+        background = ColorDrawable(boxBackgroundColor)
 
         val textViewParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT)
         textViewParams.gravity = Gravity.CENTER
@@ -133,19 +134,19 @@ class ItemView : FrameLayout {
         when (state) {
             ACTIVE -> {
                 view?.setBackgroundColor(barActiveColor)
-                this.setBackgroundResource(boxBackgroundColorActive)
+                background = ColorDrawable(boxBackgroundColorActive)
             }
             INACTIVE -> {
                 view?.setBackgroundColor(barInactiveColor)
-                this.setBackgroundResource(boxBackgroundColorInactive)
+                background = ColorDrawable(boxBackgroundColorInactive)
             }
             ERROR -> {
                 view?.setBackgroundColor(barErrorColor)
-                this.setBackgroundResource(boxBackgroundColorError)
+                background = ColorDrawable(boxBackgroundColorError)
             }
             SUCCESS -> {
                 view?.setBackgroundColor(barSuccessColor)
-                this.setBackgroundResource(boxBackgroundColorSuccess)
+                background = ColorDrawable(boxBackgroundColorSuccess)
             }
             else -> {
             }
